@@ -18,6 +18,10 @@ func main() {
 		c.String(200, "Hello World!")
 	})
 
+	app.GET("/env", func(c *gin.Context) {
+		c.String(200, "Environment: %s", os.Getenv("ENV"))
+	})
+
 	port := os.Getenv("PORT")
 
 	if port == "" {
